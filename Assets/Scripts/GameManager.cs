@@ -6,8 +6,6 @@ public class GameManager : MonoBehaviour
     bool gameEnded = false;
     public GameObject completeLevelUI;
     public AudioSource audioFail;
-    private VibrationBool vibartionBool;
-
 
     private void Awake()
     {
@@ -16,14 +14,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioFail = GetComponent<AudioSource>();
-        vibartionBool = FindObjectOfType<VibrationBool>();
     }
     
     public void EndGame()
     {
         if(!gameEnded)
         {
-            if (vibartionBool.isVibrating)
+            if (PlayerPrefs.GetInt("Vibrate") == 1)
                 Handheld.Vibrate();
             gameEnded = true;
             audioFail.Play();

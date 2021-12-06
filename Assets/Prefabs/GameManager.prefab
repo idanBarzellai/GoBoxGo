@@ -378,7 +378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e1b66f3a30db74ebe4f284537e903f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicToggle: {fileID: 3670801273730715126}
 --- !u!1 &2755643263885526602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1052,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e1b66f3a30db74ebe4f284537e903f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicToggle: {fileID: 8761368392379395965}
 --- !u!1 &4565703435231686545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 6724964445480476701}
+  soundToggle: {fileID: 3670801273730715126}
+  vibrateToggle: {fileID: 8761368392379395965}
 --- !u!1 &7253148517705838555
 GameObject:
   m_ObjectHideFlags: 0

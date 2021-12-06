@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -7,18 +5,37 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
-    private Toggle vibrate;
-    private VibrationBool vibartionBool;
+    public Toggle soundToggle;
+    public Toggle vibrateToggle;
 
     private void Awake()
     {
-        vibartionBool = FindObjectOfType<VibrationBool>();
-        vibrate = GameObject.FindGameObjectWithTag("Vibration").GetComponent<Toggle>(); 
+        if (PlayerPrefs.GetInt("Vibrate") == 1)
+            VibrateToggle(true);
+        else if (PlayerPrefs.GetInt("Vibrate") == 0)
+            VibrateToggle(false);
+        else
+            PlayerPrefs.SetInt("Vibrate", 1);
+
+        if (PlayerPrefs.GetInt("Music") == 1)
+            SoundToggle(true);
+        else if (PlayerPrefs.GetInt("Music") == 0)
+            SoundToggle(false);
+        else
+            PlayerPrefs.SetInt("Music", 1);
     }
 
     private void Update()
     {
-        vibrate.isOn = vibartionBool.isVibrating;
+        if (PlayerPrefs.GetInt("Vibrate") == 1)
+            VibrateToggle(true);
+        else
+            VibrateToggle(false);
+
+        if (PlayerPrefs.GetInt("Music") == 1)
+            SoundToggle(true);
+        else
+            SoundToggle(false);
     }
     public void Pause()
     {
@@ -39,11 +56,31 @@ public class PauseMenu : MonoBehaviour
     public void SoundToggle(bool soundOn)
     {
         AudioListener.pause = !soundOn;
+        if (soundOn)
+        {
+            PlayerPrefs.SetInt("Music", 1);
+            soundToggle.isOn = true;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Music", 0);
+            soundToggle.isOn = false;
+        }
     }
 
     public void VibrateToggle(bool vibrateOn)
     {
-        vibartionBool.isVibrating = vibrateOn;
+        //vibartionBool.isVibrating = vibrateOn;
+        if (vibrateOn)
+        {
+            PlayerPrefs.SetInt("Vibrate", 1);
+            vibrateToggle.isOn = true;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Vibrate", 0);
+            vibrateToggle.isOn = false;
+        }
     }
 
     public void Quit()
