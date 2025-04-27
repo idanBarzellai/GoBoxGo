@@ -23,9 +23,9 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector3(dirX, 0, speed * Time.deltaTime);
 
         if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
-            rb.AddForce(300 * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            rb.AddForce(500 * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
-            rb.AddForce(-300 * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            rb.AddForce(-500 * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
         if (rb.position.y < -1 || rb.position.x > 8 || rb.position.x < -8)
             FindObjectOfType<GameManager>().EndGame();

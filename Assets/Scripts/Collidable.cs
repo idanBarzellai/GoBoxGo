@@ -3,11 +3,11 @@ using UnityEngine;
 public class Collidable : MonoBehaviour
 {
     public Player movement;
-    public AudioSource audio;
+    public AudioSource audioSource;
     
     private void Start()
     {
-        audio = GetComponent<AudioSource>();    
+        audioSource = GetComponent<AudioSource>();    
     }
 
     private void OnCollisionEnter(Collision coll)
@@ -15,7 +15,7 @@ public class Collidable : MonoBehaviour
         if(coll.collider.tag == "Obstacles")
         {
             movement.enabled = false ;
-            audio.Play();
+            audioSource.Play();
             FindObjectOfType<GameManager>().EndGame();
         }
     }

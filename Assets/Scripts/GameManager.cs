@@ -20,8 +20,12 @@ public class GameManager : MonoBehaviour
     {
         if(!gameEnded)
         {
-            if (PlayerPrefs.GetInt("Vibrate") == 1)
+            if (Application.isMobilePlatform && PlayerPrefs.GetInt("Vibrate") == 1)
+            {
+            #if UNITY_ANDROID || UNITY_IOS
                 Handheld.Vibrate();
+            #endif
+            }
             gameEnded = true;
             audioFail.Play();
             Invoke("Restart", 0.5f);
