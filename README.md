@@ -31,7 +31,7 @@ Now it’s your turn—
 ## Play It
 👉 [On Google Play](https://play.google.com/store/apps/details?id=com.IdanBarzellai.GoBoxGo&hl=iw&gl=US)
 
-👉 [On itch.io](https://play.google.com/store/apps/details?id=com.IdanBarzellai.GoBoxGo&hl=iw&gl=US)
+👉 [On itch.io](https://idanbarzellai.itch.io/goboxgo)
 
 ---
 
